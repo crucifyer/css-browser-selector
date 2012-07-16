@@ -44,7 +44,7 @@ function css_browser_selector(u) {
 		is('android') ? m + ' android' :
 /* Chrome */
 		is(c) ? w + ' ' + c :
-			is('crios') ? w + ' ' + m + ' ' + c :
+			is('crios') ? w + ' ' + c :
 /* Iron */
 		is('iron') ? w + ' iron' :
 /* Safari */
