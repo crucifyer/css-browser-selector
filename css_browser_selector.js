@@ -1,5 +1,5 @@
 /*
-CSS Browser Selector v0.4.1 (Mar 20, 2012)
+CSS Browser Selector v0.4.2 (July 16, 2012)
 
 -- original --
 Rafael Lima (http://rafael.adm.br)
