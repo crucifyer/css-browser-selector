@@ -11,8 +11,8 @@
 <script type="text/javascript" src="//css-browser-selector.googlecode.com/git/css_browser_selector.js"></script>
 <script type="text/javascript">
 $(function() {
-	$(document.body).append($('html')[0].className);
-	$(document.body).append(navigator.userAgent);
+	$(document.body).append('<p>' + $('html')[0].className '</p>');
+	$(document.body).append('<p>' + navigator.userAgent + '</p>');
 });
 </script>
 </head>
