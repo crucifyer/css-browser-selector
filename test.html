@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>CSS Browser Selector Test</title>
+<meta name="author" content="Song Hyo Jin (shj at xenosi.de)" />
+<meta name="keywords" content="css selecting for different browser" />
+<meta name="copyright" content="cc-by 2.5 (http://rafael.adm.br/css_browser_selector), modified http://code.google.com/p/css-browser-selector/" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="//css-browser-selector.googlecode.com/git/css_browser_selector.js"></script>
+<script type="text/javascript">
+$(function() {
+	$(document.body).append($('html')[0].className);
+	$(document.body).append(navigator.userAgent);
+});
+</script>
+</head>
+<body>
+</body>
+</html>
