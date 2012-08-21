@@ -65,3 +65,23 @@ function css_browser_selector(u) {
 		'js'].join(' ');
 };
 document.documentElement.className += ' ' + css_browser_selector(navigator.userAgent);
+function CSSSelectorUpdateOrientation() {
+	switch(window.orientation) {
+		case 90:
+		case -90:
+			$('html').removeClass('portrait').addClass('landscape');
+			break;
+		default:
+			$('html').removeClass('landscape').addClass('portrait');
+			break;
+	}
+}
+if(!!jQuery) {
+	(function($) {
+		$(function() {
+			$(document.body).bind('orientationchange', CSSSelectorUpdateOrientation);
+			CSSSelectorUpdateOrientation();
+		});
+	})(jQuery);
+}
+
