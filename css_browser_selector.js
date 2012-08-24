@@ -24,15 +24,12 @@ function css_browser_selector(u) {
 		m = 'mobile';
 	return [
 /* IE */
-		(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ?
-			('ie ie' + RegExp.$1 + ((RegExp.$1 == '6' || RegExp.$1 == '7') ?
-				' ie67 ie678' : (RegExp.$1 == '8') ? ' ie678' : '')) :
+		(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua) && (v = RegExp.$1)) ?
+			('ie ie' + v + ((v == '6' || v == '7') ?
+				' ie67 ie678' : (v == '8') ? ' ie678' : '')) :
 /* FF */
-		is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' :
-			is('firefox/3.6') ? g + ' ff3 ff3_6' :
-				is('firefox/3') ? g + ' ff3' :
-					(/firefox\/(\d+)/.test(ua)) ? g + ' ff' + RegExp.$1 :
-						is('gecko/') ? g :
+		(/firefox\/(\d+)\.(\d+)/.test(ua) && (re = RegExp)) ? g + ' ff' + re.$1 + ' ff' + re.$1 + '_' + re.$2 :
+			is('gecko/') ? g :
 /* Opera */
 		is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 :
 			(/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) :
