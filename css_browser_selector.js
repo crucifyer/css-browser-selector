@@ -29,7 +29,7 @@ function css_browser_selector(u) {
 				' ie67 ie678' : (v == 8) ?
 					' ie678' : (v > 8) ? ' ie9m' : '')) :
 /* FF */
-		(/firefox\/(\d+)\.(\d+)/.test(ua) && (re = RegExp)) ? g + ' ff' + re.$1 + ' ff' + re.$1 + '_' + re.$2 :
+		(/firefox\/(\d+)\.(\d+)/.test(ua) && (re = RegExp)) ? g + ' ff ff' + re.$1 + ' ff' + re.$1 + '_' + re.$2 :
 			is('gecko/') ? g :
 /* Opera */
 		is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 :
