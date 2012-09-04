@@ -77,8 +77,10 @@ function CSSSelectorUpdateOrientation() {
 if(!!jQuery) {
 	(function($) {
 		$(function() {
-			$(document.body).bind('orientationchange', CSSSelectorUpdateOrientation);
-			CSSSelectorUpdateOrientation();
+			if($('html').hasClass('mobile')) {
+				$(document.body).bind('orientationchange', CSSSelectorUpdateOrientation);
+				CSSSelectorUpdateOrientation();
+			}
 		});
 	})(jQuery);
 }
