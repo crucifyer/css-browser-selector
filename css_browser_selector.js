@@ -60,6 +60,8 @@ function css_browser_selector(u) {
 		is('win') ? 'win' + (is('windows nt 6.0') ? ' vista' : '') :
 		is('freebsd') ? 'freebsd' :
 		(is('x11') || is('linux')) ? 'linux' : '',
+/* Ratio (Retina) */
+		(r = window.devicePixelRatio && r > 1) ? ' retina ratio' + r : '',
 		'js'].join(' ');
 };
 document.documentElement.className += ' ' + css_browser_selector(navigator.userAgent);
