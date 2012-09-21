@@ -7,33 +7,120 @@
 <meta name="author" content="Song Hyo Jin (shj at xenosi.de)" />
 <meta name="keywords" content="css selecting for different browser" />
 <meta name="copyright" content="cc-by 2.5 (http://rafael.adm.br/css_browser_selector), modified http://code.google.com/p/css-browser-selector/" />
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2" />
 <style>
-html, body { width:100%; height:100%; margin:0; border:0; }
-p { font-size:14px; }
-.image { width:300px; height:200px; background:url(Google_Chrome.ratio1.jpg); }
-.retina .image { background:url(Google_Chrome.ratio2.jpg); background-size:contain; }
-.portrait .landscape { display:none; }
-.landscape .portrait { display:none; }
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border: 0;
+}
+body {
+	-webkit-text-size-adjust: 100%;
+	background: #eeeeee;
+}
+.image {
+	width: 300px;
+	height: 200px;
+	background: url(//css-browser-selector.googlecode.com/git/Google_Chrome.ratio1.jpg);
+}
+.retina .image {
+	background: url(//css-browser-selector.googlecode.com/git/Google_Chrome.ratio2.jpg);
+	background-size: contain;
+}
+.portrait .landscape {
+	display: none;
+}
+.landscape .portrait {
+	display: none;
+}
+div {
+	margin: 10px auto;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	background: white;
+}
+.cssReset * {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+.imageButton {
+	width:50px;
+	height:30px;
+	text-indent:-9999px;
+	border:0;
+	padding:0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	background:url(search.jpg);
+}
+.retina .imageButton {
+	background:url(search.retina.jpg); background-size: contain;
+}
 </style>
 </head>
 <body>
-<div></div>
-<h1>For mobile</h1>
-<p class="portrait">Portrait</p>
-<p class="landscape">Landscape</p>
-<h2>ratio compare for your eyes</h2>
-<img src="Google_Chrome.ratio1.jpg" alt="origin" width="300" />
-<img src="Google_Chrome.ratio2.jpg" alt="retina" width="300" />
-<h2>css selecting</h2>
-<p class="image"></p>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript" src="//css-browser-selector.googlecode.com/git/css_browser_selector.js"></script>
+<div id="userAgent"></div>
+<div id="cssStatus"></div>
+<div id="browserStatus"></div>
+<div id="mobileDemo">
+	<h1>For mobile</h1>
+	<p class="portrait">Portrait</p>
+	<p class="landscape">Landscape</p>
+	<h2>ratio compare for your eyes</h2>
+	<img src="//css-browser-selector.googlecode.com/git/Google_Chrome.ratio1.jpg" alt="origin" width="300" /> <img src="//css-browser-selector.googlecode.com/git/Google_Chrome.ratio2.jpg" alt="retina" width="300" />
+	<h2>css selecting</h2>
+	<p class="image"></p>
+	<h2>rounded input object</h2>
+	<div class="origin">
+		<input type="radio" />
+		<input type="checkbox" />
+		<input type="email" placeholder="email" />
+		<input type="tel" placeholder="tel" />
+		<input type="datetime" placeholder="datetime" />
+		<input type="datetime-local" placeholder="datetime-local" />
+		<input type="time" placeholder="time" />
+		<input type="month" placeholder="month" />
+		<input type="week" placeholder="week" min="2012-W20" max="2012-W30" />
+		<input type="range" placeholder="range" min="1" max="11" step="2" />
+		<input type="number" placeholder="number" />
+		<input type="url" placeholder="url" />
+		<input type="submit" value="submit" />
+		<input type="image" src="search.jpg" />
+		<textarea></textarea>
+	</div>
+	<h2>reseted input object</h2>
+	<div class="cssReset">
+		<input type="radio" />
+		<input type="checkbox" />
+		<input type="email" placeholder="email" />
+		<input type="tel" placeholder="tel" />
+		<input type="datetime" placeholder="datetime" />
+		<input type="datetime-local" placeholder="datetime-local" />
+		<input type="time" placeholder="time" />
+		<input type="month" placeholder="month" />
+		<input type="week" placeholder="week" min="2012-W20" max="2012-W30" />
+		<input type="range" placeholder="range" min="1" max="11" step="2" />
+		<input type="number" placeholder="number" />
+		<input type="url" placeholder="url" />
+		<input type="submit" value="submit" />
+		<input type="image" src="search.jpg" />
+		<textarea></textarea>
+	</div>
+	<h2>input type submit image</h2>
+	<input type="submit" class="imageButton" value="submit" />
+</div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> 
+<script type="text/javascript" src="//css-browser-selector.googlecode.com/git/css_browser_selector.js"></script> 
 <script type="text/javascript">
+var html = document.documentElement;
 function showInfo() {
-	$('div').html('').append('<p>' + $('html')[0].className + '</p>').append('<p>' + navigator.userAgent + '</p>');
+	$('#cssStatus').html(html.className);
+	$('#browserStatus').html('Client Size : ' + html.clientWidth + 'x' + html.clientHeight);
 }
 $(function() {
+	$('#userAgent').html(navigator.userAgent);
 	showInfo();
 	$(document.body).bind('orientationchange', showInfo);
 });
