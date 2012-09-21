@@ -9,8 +9,8 @@
 <meta name="copyright" content="cc-by 2.5 (http://rafael.adm.br/css_browser_selector), modified http://code.google.com/p/css-browser-selector/" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 <style>
-p { width:300px; height:200px; background:url(Google_Chrome.ratio1.jpg); }
-.retina p { background:url(Google_Chrome.ratio2.jpg); }
+.image { width:300px; height:200px; background:url(Google_Chrome.ratio1.jpg); }
+.retina .image { background:url(Google_Chrome.ratio2.jpg); background-size:contain; }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@ p { width:300px; height:200px; background:url(Google_Chrome.ratio1.jpg); }
 <img src="Google_Chrome.ratio1.jpg" alt="origin" width="300" />
 <img src="Google_Chrome.ratio2.jpg" alt="retina" width="300" />
 <h1>css selecting</h1>
-<p></p>
+<p class="image"></p>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="//css-browser-selector.googlecode.com/git/css_browser_selector.js"></script>
 <script type="text/javascript">
