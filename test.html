@@ -11,11 +11,15 @@
 <style>
 .image { width:300px; height:200px; background:url(Google_Chrome.ratio1.jpg); }
 .retina .image { background:url(Google_Chrome.ratio2.jpg); background-size:contain; }
+.portrait .landscape { display:none; }
+.landscape .portrait { display:none; }
 </style>
 </head>
 <body>
 <div></div>
 <h1>For mobile</h1>
+<p class="portrait">Portrait</p>
+<p class="landscape">Landscape</p>
 <h2>ratio compare for your eyes</h2>
 <img src="Google_Chrome.ratio1.jpg" alt="origin" width="300" />
 <img src="Google_Chrome.ratio2.jpg" alt="retina" width="300" />
