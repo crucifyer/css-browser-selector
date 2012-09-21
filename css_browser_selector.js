@@ -22,7 +22,7 @@ function css_browser_selector(u) {
 		c = 'chrome',
 		o = 'opera',
 		m = 'mobile',
-		r = window.devicePixelRatio ? window.devicePixelRatio : 1;
+		r = window.devicePixelRatio ? (window.devicePixelRatio + '').replace('.', '_') : '1';
 	return [
 /* IE */
 		(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua) && (v = RegExp.$1 * 1)) ?
@@ -62,7 +62,7 @@ function css_browser_selector(u) {
 		is('freebsd') ? 'freebsd' :
 		(is('x11') || is('linux')) ? 'linux' : '',
 /* Ratio (Retina) */
-		(r > 1) ? ' retina ratio' + r : '',
+		(r != '1') ? ' retina ratio' + r : '',
 		'js'].join(' ');
 };
 document.documentElement.className += ' ' + css_browser_selector(navigator.userAgent);
