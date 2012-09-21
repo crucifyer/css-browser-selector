@@ -80,7 +80,7 @@ function CSSSelectorUpdateOrientation() {
 if(!!jQuery) {
 	(function($) {
 		$(function() {
-			if($('html').hasClass('mobile')) {
+			if($('html').hasClass('mobile') && window.orientation != undefined) {
 				$(document.body).bind('orientationchange', CSSSelectorUpdateOrientation);
 				CSSSelectorUpdateOrientation();
 			}
