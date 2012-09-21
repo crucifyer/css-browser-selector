@@ -29,7 +29,7 @@
 <script type="text/javascript" src="//css-browser-selector.googlecode.com/git/css_browser_selector.js"></script>
 <script type="text/javascript">
 function showInfo() {
-	$('div').append('<p>' + $('html')[0].className + '</p>').append('<p>' + navigator.userAgent + '</p>');
+	$('div').html('').append('<p>' + $('html')[0].className + '</p>').append('<p>' + navigator.userAgent + '</p>');
 }
 $(function() {
 	showInfo();
