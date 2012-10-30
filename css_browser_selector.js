@@ -86,12 +86,13 @@ if(!!jQuery) {
 		}
 		function CSSSelectorUpdateSize() {
 			var c = d.documentElement.clientWidth || d.body.clientWidth;
-			$h.removeClass('smart').removeClass('tablet');
+			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
+			$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw);
 			$h.addClass(
-				(c <= 360) ? 'smart' :
-				(c <= 640) ? 'smartwide' :
-				(c <= 768) ? 'tablet' :
-				(c <= 1024) ? 'tabletwide' : ''
+				(c <= 360) ? m :
+				(c <= 640) ? mw :
+				(c <= 768) ? t :
+				(c <= 1024) ? tw : ''
 			);
 		}
 		$(w).bind('resize', CSSSelectorUpdateSize);
