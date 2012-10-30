@@ -125,7 +125,7 @@ function showInfo() {
 $(function() {
 	$('#userAgent').html(navigator.userAgent);
 	showInfo();
-	$(document.body).bind('orientationchange', showInfo);
+	$(document.body).bind('orientationchange resize', showInfo);
 });
 </script>
 </body>

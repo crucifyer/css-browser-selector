@@ -63,28 +63,41 @@ function css_browser_selector(u) {
 		(is('x11') || is('linux')) ? 'linux' : '',
 /* Ratio (Retina) */
 		(r != '1') ? ' retina ratio' + r : '',
-		'js'].join(' ');
+		'js portrait'].join(' ');
 };
 document.documentElement.className += ' ' + css_browser_selector(navigator.userAgent);
-function CSSSelectorUpdateOrientation() {
-	switch(window.orientation) {
-		case 90:
-		case -90:
-			$('html').removeClass('portrait').addClass('landscape');
-			break;
-		default:
-			$('html').removeClass('landscape').addClass('portrait');
-			break;
-	}
-}
 if(!!jQuery) {
 	(function($) {
-		$(function() {
-			if($('html').hasClass('mobile') && window.orientation != undefined) {
-				$(document.body).bind('orientationchange', CSSSelectorUpdateOrientation);
-				CSSSelectorUpdateOrientation();
+		var $h = $('html'), d = document, w = window;
+		if($h.hasClass('mobile') && w.orientation != undefined) {
+			function CSSSelectorUpdateOrientation() {
+				switch(w.orientation) {
+					case 90:
+					case -90:
+						$h.removeClass('portrait').addClass('landscape');
+						break;
+					default:
+						$h.removeClass('landscape').addClass('portrait');
+						break;
+				}
 			}
-		});
+			$(d.body).bind('orientationchange', CSSSelectorUpdateOrientation);
+			CSSSelectorUpdateOrientation();
+		}
+		function CSSSelectorUpdateSize() {
+			var c = d.documentElement.clientWidth || d.body.clientWidth;
+			var s = '';
+			if($h.hasClass('portrait')) {
+				if(c <= 320) s = 'smart';
+				else if(c <= 768) s = 'tablet';
+			} else {
+				if(c <= 480) s = 'smart';
+				else if(c <= 1024) s = 'tablet';
+			}
+			$h.removeClass('smart').removeClass('tablet');
+			if(s) $h.addClass(s);
+		}
+		$(d.body).bind('resize', CSSSelectorUpdateSize);
 	})(jQuery);
 }
 
