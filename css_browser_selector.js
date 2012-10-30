@@ -97,7 +97,7 @@ if(!!jQuery) {
 			$h.removeClass('smart').removeClass('tablet');
 			if(s) $h.addClass(s);
 		}
-		$(d.body).bind('resize', CSSSelectorUpdateSize);
+		$(w).bind('resize', CSSSelectorUpdateSize);
 	})(jQuery);
 }
 
