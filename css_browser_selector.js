@@ -87,9 +87,12 @@ if(!!jQuery) {
 		function CSSSelectorUpdateSize() {
 			var c = d.documentElement.clientWidth || d.body.clientWidth;
 			$h.removeClass('smart').removeClass('tablet');
-			if(c <= 1024) {
-				$h.addClass((c <= 640) ? 'smart' : 'tablet');
-			}
+			$h.addClass(
+				(c <= 360) ? 'smart' :
+				(c <= 640) ? 'smartwide' :
+				(c <= 768) ? 'tablet' :
+				(c <= 1024) ? 'tabletwide' : ''
+			);
 		}
 		$(w).bind('resize', CSSSelectorUpdateSize);
 	})(jQuery);
