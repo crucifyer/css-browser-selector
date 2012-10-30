@@ -95,6 +95,7 @@ if(!!jQuery) {
 			);
 		}
 		$(w).bind('resize', CSSSelectorUpdateSize);
+		CSSSelectorUpdateSize();
 	})(jQuery);
 }
 
