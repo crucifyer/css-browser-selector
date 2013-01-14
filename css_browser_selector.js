@@ -87,7 +87,7 @@ if(!!jQuery) {
 		function CSSSelectorUpdateSize() {
 			var c = d.documentElement.clientWidth || d.body.clientWidth;
 			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
-			$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw);
+			$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
 			$h.addClass(
 				(c <= 360) ? m :
 				(c <= 640) ? mw :
