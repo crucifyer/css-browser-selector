@@ -69,18 +69,18 @@ document.documentElement.className += ' ' + css_browser_selector(navigator.userA
 if(!!jQuery) {
 	(function($) {
 		var $h = $('html'), d = document, w = window;
-		if($h.hasClass('mobile') && w.orientation != undefined) {
-			function CSSSelectorUpdateOrientation() {
-				switch(w.orientation) {
-					case 90:
-					case -90:
-						$h.removeClass('portrait').addClass('landscape');
-						break;
-					default:
-						$h.removeClass('landscape').addClass('portrait');
-						break;
-				}
+		function CSSSelectorUpdateOrientation() {
+			switch(w.orientation) {
+				case 90:
+				case -90:
+					$h.removeClass('portrait').addClass('landscape');
+					break;
+				default:
+					$h.removeClass('landscape').addClass('portrait');
+					break;
 			}
+		}
+		if($h.hasClass('mobile') && w.orientation != undefined) {
 			$(d.body).bind('orientationchange', CSSSelectorUpdateOrientation);
 			CSSSelectorUpdateOrientation();
 		}
@@ -94,6 +94,7 @@ if(!!jQuery) {
 				(c <= 768) ? t :
 				(c <= 1024) ? tw : 'pc'
 			);
+			CSSSelectorUpdateOrientation();
 		}
 		$(w).bind('resize', CSSSelectorUpdateSize);
 		CSSSelectorUpdateSize();
