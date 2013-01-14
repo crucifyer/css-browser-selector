@@ -81,7 +81,7 @@ if(!!jQuery) {
 			}
 		}
 		if($h.hasClass('mobile') && w.orientation != undefined) {
-			$(d.body).bind('orientationchange', CSSSelectorUpdateOrientation);
+			$(w).bind('orientationchange', CSSSelectorUpdateOrientation);
 			CSSSelectorUpdateOrientation();
 		}
 		function CSSSelectorUpdateSize() {
