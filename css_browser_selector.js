@@ -94,7 +94,6 @@ if(!!jQuery) {
 				(c <= 768) ? t :
 				(c <= 1024) ? tw : 'pc'
 			);
-			CSSSelectorUpdateOrientation();
 		}
 		$(w).bind('resize', CSSSelectorUpdateSize);
 		CSSSelectorUpdateSize();
