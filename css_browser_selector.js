@@ -1,5 +1,5 @@
 /*
-CSS Browser Selector v0.4.4 (Sep 21, 2012)
+CSS Browser Selector v0.4.5 (Jan 21, 2012)
 
 -- original --
 Rafael Lima (http://rafael.adm.br)
@@ -66,16 +66,17 @@ function css_browser_selector(u) {
 		'js portrait'].join(' ');
 };
 var _c = css_browser_selector(navigator.userAgent);
-var de = document.documentElement;
-de.className += ' ' + _c;
-de.cbs = {};
+var d = document, w = window;
+var h = d.documentElement;
+h.className += ' ' + _c;
+w.cbs = {};
 var _d = _c.split(/ +/);
 for(var i in _d) {
-	de.cbs[_d[i]] = 1;
+	w.cbs[_d[i]] = 1;
 }
 if(!!jQuery) {
 	(function($) {
-		var $h = $('html'), d = document, w = window;
+		var $h = $(h);
 		function CSSSelectorUpdateOrientation() {
 			switch(w.orientation) {
 				case 90:
