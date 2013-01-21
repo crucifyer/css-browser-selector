@@ -65,7 +65,14 @@ function css_browser_selector(u) {
 		(r != '1') ? ' retina ratio' + r : '',
 		'js portrait'].join(' ');
 };
-document.documentElement.className += ' ' + css_browser_selector(navigator.userAgent);
+var _c = css_browser_selector(navigator.userAgent);
+var de = document.documentElement;
+de.className += ' ' + _c;
+de.cbs = {};
+var _d = _c.split(/ +/);
+for(var i in _d) {
+	de.cbs[_d[i]] = 1;
+}
 if(!!jQuery) {
 	(function($) {
 		var $h = $('html'), d = document, w = window;
