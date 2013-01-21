@@ -69,10 +69,10 @@ var _c = css_browser_selector(navigator.userAgent);
 var d = document, w = window;
 var h = d.documentElement;
 h.className += ' ' + _c;
-w.CSSBrowserSelector = {};
+w.CSSBS = {};
 var _d = _c.split(/ +/);
 for(var i in _d) {
-	w.CSSBrowserSelector[_d[i]] = 1;
+	w.CSSBS[_d[i]] = 1;
 }
 if(!!jQuery) {
 	(function($) {
