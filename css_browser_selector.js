@@ -81,7 +81,7 @@ if(!!jQuery) {
 			}
 		}
 		if($h.hasClass('mobile') && w.orientation != undefined) {
-			$(w).bind('orientationchange', CSSSelectorUpdateOrientation);
+			$(w).on('orientationchange', CSSSelectorUpdateOrientation);
 			CSSSelectorUpdateOrientation();
 		}
 		function CSSSelectorUpdateSize() {
@@ -95,7 +95,7 @@ if(!!jQuery) {
 				(c <= 1024) ? tw : 'pc'
 			);
 		}
-		$(w).bind('resize', CSSSelectorUpdateSize);
+		$(w).on('resize', CSSSelectorUpdateSize);
 		CSSSelectorUpdateSize();
 	})(jQuery);
 }
