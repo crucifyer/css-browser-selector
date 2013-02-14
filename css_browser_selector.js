@@ -69,12 +69,12 @@ var _c = css_browser_selector(navigator.userAgent);
 var d = document, w = window;
 var h = d.documentElement;
 h.className += ' ' + _c;
-var _d = _c.split(/ +/);
-for(var i in _d) {
-	w['CSSBS_' + _d[i]] = 1;
-}
 if(!!jQuery) {
 	(function($) {
+		var _d = $.trim(_c).split(/ +/);
+		for(var i = 0; i < _d.length; i ++) {
+			w['CSSBS_' + _d[i]] = 1;
+		}
 		var $h = $(h);
 		function CSSSelectorUpdateOrientation() {
 			switch(w.orientation) {
