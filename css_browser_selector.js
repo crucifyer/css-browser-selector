@@ -65,47 +65,49 @@ function css_browser_selector(u) {
 		(r != '1') ? ' retina ratio' + r : '',
 		'js portrait'].join(' ');
 };
-var _c = css_browser_selector(navigator.userAgent);
-var d = document, w = window;
-var h = d.documentElement;
-h.className += ' ' + _c;
-if(!!jQuery) {
-	(function($) {
-		var _d = $.trim(_c).split(/ +/);
-		for(var i = 0; i < _d.length; i ++) {
-			w['CSSBS_' + _d[i]] = 1;
-		}
-		var $h = $(h);
-		function CSSSelectorUpdateOrientation() {
-			switch(w.orientation) {
-				case 90:
-				case -90:
-					$h.removeClass('portrait').addClass('landscape');
-					break;
-				default:
-					$h.removeClass('landscape').addClass('portrait');
-					break;
+(function(d, w) {
+	var _c = css_browser_selector(navigator.userAgent);
+	var h = d.documentElement;
+	h.className += ' ' + _c;
+	var _d = _c.replace(/^\s*|\s*$/g, '').split(/ +/);
+	for(var i = 0; i < _d.length; i ++) {
+		w['CSSBS_' + _d[i]] = 1;
+	}
+	if(!!jQuery) {
+		(function($) {
+			var $h = $(h);
+			function CSSSelectorUpdateOrientation() {
+				switch(w.orientation) {
+					case 90:
+					case -90:
+						$h.removeClass('portrait').addClass('landscape');
+						break;
+					default:
+						$h.removeClass('landscape').addClass('portrait');
+						break;
+				}
 			}
-		}
-		if($h.hasClass('mobile') && w.orientation != undefined) {
-			$(w).on('orientationchange', CSSSelectorUpdateOrientation);
-			CSSSelectorUpdateOrientation();
-		}
-		function CSSSelectorUpdateSize() {
-			try {
-				var c = d.documentElement.clientWidth || d.body.clientWidth;
-				var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
-				$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
-				$h.addClass(
-					(c <= 360) ? m :
-					(c <= 640) ? mw :
-					(c <= 768) ? t :
-					(c <= 1024) ? tw : 'pc'
-				);
-			} catch(e) {}
-		}
-		$(w).on('resize', CSSSelectorUpdateSize);
-		CSSSelectorUpdateSize();
-	})(jQuery);
-}
+			if($h.hasClass('mobile') && w.orientation != undefined) {
+				$(w).on('orientationchange', CSSSelectorUpdateOrientation);
+				CSSSelectorUpdateOrientation();
+			}
+			function CSSSelectorUpdateSize() {
+				try {
+					var c = d.documentElement.clientWidth || d.body.clientWidth;
+					var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
+					$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
+					$h.addClass(
+						(c <= 360) ? m :
+						(c <= 640) ? mw :
+						(c <= 768) ? t :
+						(c <= 1024) ? tw : 'pc'
+					);
+				} catch(e) {}
+			}
+			$(w).on('resize', CSSSelectorUpdateSize);
+			CSSSelectorUpdateSize();
+		})(jQuery);
+	}
+})(document, window);
+
 
