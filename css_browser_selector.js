@@ -75,7 +75,7 @@ function css_browser_selector(u) {
 	for(var i = 0; i < _d.length; i ++) {
 		w['CSSBS_' + _d[i]] = 1;
 	}
-	if(!!jQuery) {
+	if(w.jQuery) {
 		(function($) {
 			var p = 'portarit', l = 'landscape';
 			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
@@ -109,7 +109,7 @@ function css_browser_selector(u) {
 			}
 			$(w).on('resize', CSSSelectorUpdateSize);
 			CSSSelectorUpdateSize();
-		})(jQuery);
+		})(w.jQuery);
 	}
 })(document, window);
 
