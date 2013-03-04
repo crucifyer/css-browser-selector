@@ -77,15 +77,17 @@ function css_browser_selector(u) {
 	}
 	if(!!jQuery) {
 		(function($) {
+			var p = 'portarit', l = 'landscape';
+			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
 			var $h = $(h);
 			function CSSSelectorUpdateOrientation() {
 				switch(w.orientation) {
 					case 90:
 					case -90:
-						$h.removeClass('portrait').addClass('landscape');
+						$h.removeClass(p).addClass(l);
 						break;
 					default:
-						$h.removeClass('landscape').addClass('portrait');
+						$h.removeClass(l).addClass(p);
 						break;
 				}
 			}
@@ -96,7 +98,6 @@ function css_browser_selector(u) {
 			function CSSSelectorUpdateSize() {
 				try {
 					var c = d.documentElement.clientWidth || d.body.clientWidth;
-					var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
 					$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
 					$h.addClass(
 						(c <= 360) ? m :
