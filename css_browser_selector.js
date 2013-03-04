@@ -81,6 +81,7 @@ function css_browser_selector(u) {
 				var p = 'portarit', l = 'landscape';
 				var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
 				var $h = $(h);
+				var to = 0;
 				function CSSSelectorUpdateOrientation() {
 					switch(w.orientation) {
 						case 90:
@@ -96,6 +97,13 @@ function css_browser_selector(u) {
 					$(w).on('orientationchange', CSSSelectorUpdateOrientation);
 					CSSSelectorUpdateOrientation();
 				}
+				/* ie7 cpu 100% fix */
+				function CSSSelectorUpdateSize_() {
+					try {
+						clearTimeout(to);
+					} catch(e) {}
+					to = setTimeout(CSSSelectorUpdateSize, 100);
+				}
 				function CSSSelectorUpdateSize() {
 					try {
 						var c = d.documentElement.clientWidth || d.body.clientWidth;
@@ -108,9 +116,8 @@ function css_browser_selector(u) {
 						);
 					} catch(e) {}
 				}
-				/* ie7 cpu 100% fix */
 				setTimeout(function() {
-					$(w).on('resize', CSSSelectorUpdateSize);
+					$(w).on('resize', CSSSelectorUpdateSize_);
 					CSSSelectorUpdateSize();
 				}, 500);
 			});
