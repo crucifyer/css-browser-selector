@@ -77,7 +77,7 @@ function css_browser_selector(u) {
 	}
 	if(w.jQuery) {
 		(function($) {
-			$(function() {
+			$(w).load(function() {
 				var p = 'portarit', l = 'landscape';
 				var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
 				var $h = $(h);
@@ -108,8 +108,11 @@ function css_browser_selector(u) {
 						);
 					} catch(e) {}
 				}
-				$(w).on('resize', CSSSelectorUpdateSize);
-				CSSSelectorUpdateSize();
+				/* ie7 cpu 100% fix */
+				setTimeout(function() {
+					$(w).on('resize', CSSSelectorUpdateSize);
+					CSSSelectorUpdateSize();
+				}, 500);
 			});
 		})(w.jQuery);
 	}
