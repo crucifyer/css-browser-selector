@@ -77,38 +77,40 @@ function css_browser_selector(u) {
 	}
 	if(w.jQuery) {
 		(function($) {
-			var p = 'portarit', l = 'landscape';
-			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
-			var $h = $(h);
-			function CSSSelectorUpdateOrientation() {
-				switch(w.orientation) {
-					case 90:
-					case -90:
-						$h.removeClass(p).addClass(l);
-						break;
-					default:
-						$h.removeClass(l).addClass(p);
-						break;
+			$(function() {
+				var p = 'portarit', l = 'landscape';
+				var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
+				var $h = $(h);
+				function CSSSelectorUpdateOrientation() {
+					switch(w.orientation) {
+						case 90:
+						case -90:
+							$h.removeClass(p).addClass(l);
+							break;
+						default:
+							$h.removeClass(l).addClass(p);
+							break;
+					}
 				}
-			}
-			if($h.hasClass('mobile') && w.orientation != undefined) {
-				$(w).on('orientationchange', CSSSelectorUpdateOrientation);
-				CSSSelectorUpdateOrientation();
-			}
-			function CSSSelectorUpdateSize() {
-				try {
-					var c = d.documentElement.clientWidth || d.body.clientWidth;
-					$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
-					$h.addClass(
-						(c <= 360) ? m :
-						(c <= 640) ? mw :
-						(c <= 768) ? t :
-						(c <= 1024) ? tw : 'pc'
-					);
-				} catch(e) {}
-			}
-			$(w).on('resize', CSSSelectorUpdateSize);
-			CSSSelectorUpdateSize();
+				if($h.hasClass('mobile') && w.orientation != undefined) {
+					$(w).on('orientationchange', CSSSelectorUpdateOrientation);
+					CSSSelectorUpdateOrientation();
+				}
+				function CSSSelectorUpdateSize() {
+					try {
+						var c = d.documentElement.clientWidth || d.body.clientWidth;
+						$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
+						$h.addClass(
+							(c <= 360) ? m :
+							(c <= 640) ? mw :
+							(c <= 768) ? t :
+							(c <= 1024) ? tw : 'pc'
+						);
+					} catch(e) {}
+				}
+				$(w).on('resize', CSSSelectorUpdateSize);
+				CSSSelectorUpdateSize();
+			});
 		})(w.jQuery);
 	}
 })(document, window);
