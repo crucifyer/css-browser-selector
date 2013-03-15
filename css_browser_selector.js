@@ -72,6 +72,7 @@ function css_browser_selector(u) {
 	var h = d.documentElement;
 	h.className += ' ' + _c;
 	var _d = _c.replace(/^\s*|\s*$/g, '').split(/ +/);
+	w.CSSBS = 1;
 	for(var i = 0; i < _d.length; i ++) {
 		w['CSSBS_' + _d[i]] = 1;
 	}
