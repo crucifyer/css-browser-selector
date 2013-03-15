@@ -98,16 +98,16 @@ function css_browser_selector(u) {
 					CSSSelectorUpdateOrientation();
 				}
 				/* ie7 cpu 100% fix */
-				function CSSSelectorUpdateSize_() {
+				function CSSSelectorUpdateSize() {
 					try {
 						var _cw = d.documentElement.clientWidth || d.body.clientWidth;
 						if(_cw == cw) return;
 						cw = _cw;
 						clearTimeout(to);
 					} catch(e) {}
-					to = setTimeout(CSSSelectorUpdateSize, 100);
+					to = setTimeout(CSSSelectorUpdateSize_, 100);
 				}
-				function CSSSelectorUpdateSize() {
+				function CSSSelectorUpdateSize_() {
 					try {
 						$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
 						$h.addClass(
@@ -119,7 +119,7 @@ function css_browser_selector(u) {
 					} catch(e) {}
 				}
 				setTimeout(function() {
-					$(w).on('resize', CSSSelectorUpdateSize_);
+					$(w).on('resize', CSSSelectorUpdateSize);
 					CSSSelectorUpdateSize();
 				}, 500);
 			});
