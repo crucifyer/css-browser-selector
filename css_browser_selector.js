@@ -67,8 +67,8 @@ function css_browser_selector(u) {
 /* Ratio (Retina) */
 		(r != '1') ? ' retina ratio' + r : '',
 		'js portrait'].join(' ');
-	if(v && window.jQuery && !window.jQuery.browser) {
-		window.jQuery.browser = {msie:1,version:v};
+	if(window.jQuery && !window.jQuery.browser) {
+		window.jQuery.browser = v ? {msie:1,version:v} : {};
 	}
 	return res;
 };
