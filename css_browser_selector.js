@@ -22,8 +22,9 @@ function css_browser_selector(u) {
 		c = 'chrome',
 		o = 'opera',
 		m = 'mobile',
+		v = 0,
 		r = window.devicePixelRatio ? (window.devicePixelRatio + '').replace('.', '_') : '1';
-	return [
+	var res = [
 /* IE */
 		(!(/opera|webtv/i.test(ua)) && /msie\s(\d+)/.test(ua) && (v = RegExp.$1 * 1)) ?
 			('ie ie' + v + ((v == 6 || v == 7) ?
@@ -66,6 +67,10 @@ function css_browser_selector(u) {
 /* Ratio (Retina) */
 		(r != '1') ? ' retina ratio' + r : '',
 		'js portrait'].join(' ');
+	if(v && window.jQuery && !window.jQuery.browser) {
+		window.jQuery.browser = {msie:1,version:v};
+	}
+	return res;
 };
 (function(d, w) {
 	var _c = css_browser_selector(navigator.userAgent);
