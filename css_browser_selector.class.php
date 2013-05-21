@@ -3,6 +3,7 @@
 CSS Browser Selector php v0.0.1 (May 21, 2013)
 conversion from js
 project: http://code.google.com/p/css-browser-selector/
+License: http://creativecommons.org/licenses/by/2.5/
 Song Hyo-Jin (shj at xenosi.de)
 
 $className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT]);
