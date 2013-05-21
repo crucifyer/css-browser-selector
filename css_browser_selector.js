@@ -1,5 +1,5 @@
 /*
-CSS Browser Selector v0.4.5 (Jan 21, 2012)
+CSS Browser Selector js v0.5.0 (May 21, 2013)
 
 -- original --
 Rafael Lima (http://rafael.adm.br)
@@ -26,7 +26,7 @@ function css_browser_selector(u) {
 		r = window.devicePixelRatio ? (window.devicePixelRatio + '').replace('.', '_') : '1';
 	var res = [
 /* IE */
-		(!(/opera|webtv/i.test(ua)) && /msie\s(\d+)/.test(ua) && (v = RegExp.$1 * 1)) ?
+		(!(/opera|webtv/.test(ua)) && /msie\s(\d+)/.test(ua) && (v = RegExp.$1 * 1)) ?
 			('ie ie' + v + ((v == 6 || v == 7) ?
 				' ie67 ie678 ie6789' : (v == 8) ?
 					' ie678 ie6789' : (v == 9) ?
@@ -36,7 +36,7 @@ function css_browser_selector(u) {
 		(/firefox\/(\d+)\.(\d+)/.test(ua) && (re = RegExp)) ? g + ' ff ff' + re.$1 + ' ff' + re.$1 + '_' + re.$2 :
 			is('gecko/') ? g :
 /* Opera */
-		is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 :
+		is(o) ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 :
 			(/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) :
 /* K */
 		is('konqueror') ? 'konqueror' :
@@ -45,8 +45,7 @@ function css_browser_selector(u) {
 /* Android */
 		is('android') ? m + ' android' :
 /* Chrome */
-		is(c) ? w + ' ' + c :
-			is('crios') ? w + ' ' + c :
+		(is(c) || is('crios')) ? w + ' ' + c :
 /* Iron */
 		is('iron') ? w + ' iron' :
 /* Safari */
@@ -55,9 +54,9 @@ function css_browser_selector(u) {
 		is('mozilla/') ? g : '',
 /* Machine */
 		is('j2me') ? m + ' j2me' :
-		is('iphone') ? m + ' iphone' :
-		is('ipod') ? m + ' ipod' :
-		is('ipad') ? m + ' ipad' :
+		is('iphone') ? m + ' ios iphone' :
+		is('ipod') ? m + ' ios ipod' :
+		is('ipad') ? m + ' ios ipad' :
 		is('mac') ? 'mac' :
 		is('darwin') ? 'mac' :
 		is('webtv') ? 'webtv' :
