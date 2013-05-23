@@ -6,7 +6,7 @@ project: http://code.google.com/p/css-browser-selector/
 License: http://creativecommons.org/licenses/by/2.5/
 Song Hyo-Jin (shj at xenosi.de)
 
-$className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT]);
+$className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT']);
 
 */
 
