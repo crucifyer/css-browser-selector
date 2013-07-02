@@ -240,7 +240,7 @@ div, table {
 var html = document.documentElement;
 function showInfo() {
 	$('#cssStatus').html(html.className);
-	$('#browserStatus').html('Client Size : ' + html.clientWidth + 'x' + html.clientHeight);
+	$('#browserStatus').html('Client Size : ' + html.clientWidth + 'x' + html.clientHeight + ', Orientation : ' + window.orientation);
 }
 $(function() {
 	$('#userAgent').html(navigator.userAgent);
