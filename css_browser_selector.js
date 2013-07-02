@@ -108,9 +108,9 @@ function css_browser_selector(u) {
 						break;
 				}
 			}
-			if($h.hasClass('mobile')) {
-				$(w).on('orientationchange', CSSSelectorUpdateOrientation).trigger('orientationchange');
-			}
+
+			$(w).on('orientationchange', CSSSelectorUpdateOrientation).trigger('orientationchange');
+
 			/* ie7 cpu 100% fix */
 			function CSSSelectorUpdateSize() {
 				try {
