@@ -44,7 +44,7 @@ function css_browser_selector(u) {
 		is('blackberry') ? m + ' blackberry' :
 /* Android */
 		is('android') ? m + ' android' :
-		is('ipad; u; cpu os') ? m + ' android tablet'
+		is('ipad; u; cpu os') ? m + ' android tablet' :
 /* Chrome */
 		(is(c) || is('crios')) ? w + ' ' + c :
 /* Iron */
