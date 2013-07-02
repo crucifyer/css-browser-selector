@@ -44,6 +44,7 @@ function css_browser_selector(u) {
 		is('blackberry') ? m + ' blackberry' :
 /* Android */
 		is('android') ? m + ' android' :
+		is('ipad; u; cpu os') ? m + ' android tablet'
 /* Chrome */
 		(is(c) || is('crios')) ? w + ' ' + c :
 /* Iron */
@@ -56,7 +57,7 @@ function css_browser_selector(u) {
 		is('j2me') ? m + ' j2me' :
 		is('iphone') ? m + ' ios iphone' :
 		is('ipod') ? m + ' ios ipod' :
-		is('ipad') ? m + ' ios ipad' :
+		is('ipad') ? m + ' ios ipad tablet' :
 		is('mac') ? 'mac' :
 		is('darwin') ? 'mac' :
 		is('webtv') ? 'webtv' :
