@@ -44,7 +44,6 @@ function css_browser_selector(u) {
 		is('blackberry') ? m + ' blackberry' :
 /* Android */
 		is('android') ? m + ' android' :
-		is('ipad; u; cpu os') ? m + ' android tablet' :
 /* Chrome */
 		(is(c) || is('crios')) ? w + ' ' + c :
 /* Iron */
@@ -55,6 +54,7 @@ function css_browser_selector(u) {
 		is('mozilla/') ? g : '',
 /* Machine */
 		is('j2me') ? m + ' j2me' :
+		is('ipad; u; cpu os') ? m + ' android tablet' :
 		is('iphone') ? m + ' ios iphone' :
 		is('ipod') ? m + ' ios ipod' :
 		is('ipad') ? m + ' ios ipad tablet' :
