@@ -91,6 +91,11 @@ function css_browser_selector(u) {
 			var to = 0, cw = 0;
 			function CSSSelectorUpdateOrientation() {
 				switch(w.orientation) {
+					case undefined:
+						setTimeout(function() {
+							CSSSelectorUpdateSize();
+						}, 500);
+						break;
 					case 90:
 					case -90:
 						$h.removeClass(p).addClass(l);
