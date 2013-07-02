@@ -57,6 +57,7 @@ function css_browser_selector(u) {
 /* Machine */
 		is('j2me') ? m + ' j2me' :
 		is('ipad; u; cpu os') ? m + ' android tablet' :
+		is('ipad;u;cpu os') ? m + ' android tablet' :
 		is('iphone') ? m + ' ios iphone' :
 		is('ipod') ? m + ' ios ipod' :
 		is('ipad') ? m + ' ios ipad tablet' :
