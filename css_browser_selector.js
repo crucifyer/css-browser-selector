@@ -83,7 +83,7 @@ function css_browser_selector(u) {
 	if(w.jQuery) {
 		(function($) {
 			$(w).load(function() {
-				var p = 'portarit', l = 'landscape';
+				var p = 'portrait', l = 'landscape';
 				var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
 				var $h = $(h);
 				var to = 0, cw = 0;
