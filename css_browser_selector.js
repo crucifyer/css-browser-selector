@@ -47,7 +47,7 @@ function css_browser_selector(u) {
 /* Iron */
 		is('iron') ? w + ' iron' :
 /* Safari */
-		is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.$1 : '') :
+		is('applewebkit/') ? w + ' ' + s :
 /* Mozilla */
 		is('mozilla/') ? g : '',
 /* Android */
