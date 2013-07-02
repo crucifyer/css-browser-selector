@@ -42,8 +42,6 @@ function css_browser_selector(u) {
 		is('konqueror') ? 'konqueror' :
 /* Black Berry */
 		is('blackberry') ? m + ' blackberry' :
-/* Android */
-		is('android') ? m + ' android' :
 /* Chrome */
 		(is(c) || is('crios')) ? w + ' ' + c :
 /* Iron */
@@ -52,6 +50,10 @@ function css_browser_selector(u) {
 		is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.$1 : '') :
 /* Mozilla */
 		is('mozilla/') ? g : '',
+/* Android */
+		is('android') ? m + ' android' : '',
+/* Tablet */
+		is('tablet/') ? 'tablet' : '',
 /* Machine */
 		is('j2me') ? m + ' j2me' :
 		is('ipad; u; cpu os') ? m + ' android tablet' :
@@ -83,52 +85,50 @@ function css_browser_selector(u) {
 	}
 	if(w.jQuery) {
 		(function($) {
-			$(w).load(function() {
-				var p = 'portrait', l = 'landscape';
-				var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
-				var $h = $(h);
-				var to = 0, cw = 0;
-				function CSSSelectorUpdateOrientation() {
-					switch(w.orientation) {
-						case 90:
-						case -90:
-							$h.removeClass(p).addClass(l);
-							break;
-						default:
-							$h.removeClass(l).addClass(p);
-							break;
-					}
+			var p = 'portrait', l = 'landscape';
+			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide';
+			var $h = $(h);
+			var to = 0, cw = 0;
+			function CSSSelectorUpdateOrientation() {
+				switch(w.orientation) {
+					case 90:
+					case -90:
+						$h.removeClass(p).addClass(l);
+						break;
+					default:
+						$h.removeClass(l).addClass(p);
+						break;
 				}
-				if($h.hasClass('mobile') && w.orientation != undefined) {
-					$(w).on('orientationchange', CSSSelectorUpdateOrientation);
-					CSSSelectorUpdateOrientation();
-				}
-				/* ie7 cpu 100% fix */
-				function CSSSelectorUpdateSize() {
-					try {
-						var _cw = d.documentElement.clientWidth || d.body.clientWidth;
-						if(_cw == cw) return;
-						cw = _cw;
-						clearTimeout(to);
-					} catch(e) {}
-					to = setTimeout(CSSSelectorUpdateSize_, 100);
-				}
-				function CSSSelectorUpdateSize_() {
-					try {
-						$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
-						$h.addClass(
-							(cw <= 360) ? m :
-							(cw <= 640) ? mw :
-							(cw <= 768) ? t :
-							(cw <= 1024) ? tw : 'pc'
-						);
-					} catch(e) {}
-				}
-				setTimeout(function() {
-					$(w).on('resize', CSSSelectorUpdateSize);
-					CSSSelectorUpdateSize();
-				}, 500);
-			});
+			}
+			if($h.hasClass('mobile') && w.orientation != undefined) {
+				$(w).on('orientationchange', CSSSelectorUpdateOrientation);
+				CSSSelectorUpdateOrientation();
+			}
+			/* ie7 cpu 100% fix */
+			function CSSSelectorUpdateSize() {
+				try {
+					var _cw = d.documentElement.clientWidth || d.body.clientWidth;
+					if(_cw == cw) return;
+					cw = _cw;
+					clearTimeout(to);
+				} catch(e) {}
+				to = setTimeout(CSSSelectorUpdateSize_, 100);
+			}
+			function CSSSelectorUpdateSize_() {
+				try {
+					$h.removeClass(m).removeClass(mw).removeClass(t).removeClass(tw).removeClass('pc');
+					$h.addClass(
+						(cw <= 360) ? m :
+						(cw <= 640) ? mw :
+						(cw <= 768) ? t :
+						(cw <= 1024) ? tw : 'pc'
+					);
+				} catch(e) {}
+			}
+			$(w).on('resize', CSSSelectorUpdateSize).trigger('resize');
+			setTimeout(function() {
+				CSSSelectorUpdateSize();
+			}, 500);
 		})(w.jQuery);
 	}
 })(document, window);
