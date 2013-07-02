@@ -1,6 +1,6 @@
 <?php
 /*
-CSS Browser Selector php v0.0.1 (May 21, 2013)
+CSS Browser Selector php v0.0.3 (June 2, 2013)
 conversion from js
 project: http://code.google.com/p/css-browser-selector/
 License: http://creativecommons.org/licenses/by/2.5/
@@ -50,18 +50,22 @@ class css_browser_selector {
 			(self::is('konqueror') ? 'konqueror' :
 /* Black Berry */
 			(self::is('blackberry') ? self::m.' blackberry' :
-/* Android */
-			(self::is('android') ? self::m.' android':
 /* Chrome */
 			((self::is(self::c) || self::is('crios')) ? self::w.' '.self::c :
 /* Iron */
 			(self::is('iron') ? self::w.' iron' :
 /* Safari */
-			(self::is('applewebkit/') ? self::w.' '.self::s.(self::test('~version/(\d+)~') ? ' '.self::o.self::$re[1] : '') :
+			(!self::is('cpu os') && self::is('applewebkit/') ? self::w.' '.self::s :
 /* Mozilla */
-			(self::is('mozilla') ? self::g : '')))))))))),
+			(self::is('mozilla') ? self::g : ''))))))))),
+/* Android */
+			(self::is('android') ? self::m.' android' : ''),
+/* Tablet */
+			(self::is('tablet') ? 'tablet' : ''),
 /* Machine */
-			self::is('j2me') ? self::m.' j2me' :
+			(self::is('j2me') ? self::m.' j2me' :
+			(self::is('ipad; u; cpu os') ? self::m.' chrome android tablet' :
+			(self::is('ipad;u;cpu os') ? self::m + ' chromedef android tablet' :
 			(self::is('iphone') ? self::m.' ios iphone' :
 			(self::is('ipod') ? self::m.' ios ipod' :
 			(self::is('ipad') ? self::m.' ios ipad' :
@@ -70,7 +74,7 @@ class css_browser_selector {
 			(self::is('webtv') ? 'webtv' :
 			(self::is('win') ? 'win'.(self::is('windows nt 6.0') ? ' vista' : '') :
 			(self::is('freebsd') ? 'freebsd' :
-			((self::is('x11') || self::is('linux')) ? 'linux' : '')))))))))
+			((self::is('x11') || self::is('linux')) ? 'linux' : ''))))))))))))
 		));
 	}
 }

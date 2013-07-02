@@ -53,7 +53,7 @@ function css_browser_selector(u) {
 /* Android */
 		is('android') ? m + ' android' : '',
 /* Tablet */
-		is('tablet/') ? 'tablet' : '',
+		is('tablet') ? 'tablet' : '',
 /* Machine */
 		is('j2me') ? m + ' j2me' :
 		is('ipad; u; cpu os') ? m + ' chrome android tablet' :
