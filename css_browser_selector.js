@@ -90,7 +90,7 @@ function css_browser_selector(u) {
 	if(w.jQuery) {
 		(function($) {
 			var p = 'portrait', l = 'landscape';
-			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide', ac = m + ' ' + mw + ' ' + t + ' ' + tw + ' pc';
+			var m = 'smartnarrow', mw = 'smartwide', t = 'tabletnarrow', tw = 'tabletwide', ac = m + ' ' + mw + ' ' + t + ' ' + tw + ' pc';
 			var $h = $(h);
 			var to = 0, cw = 0;
 
