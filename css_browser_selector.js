@@ -47,7 +47,7 @@ function css_browser_selector(u) {
 /* Iron */
 		is('iron') ? w + ' iron' :
 /* Safari */
-		is('applewebkit/') ? w + ' ' + s :
+		!is('cpu os') && is('applewebkit/') ? w + ' ' + s :
 /* Mozilla */
 		is('mozilla/') ? g : '',
 /* Android */
