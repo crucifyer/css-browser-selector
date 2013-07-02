@@ -92,24 +92,16 @@ function css_browser_selector(u) {
 			var m = 'smart', mw = 'smartwide', t = 'tablet', tw = 'tabletwide', ac = m + ' ' + mw + ' ' + t + ' ' + tw + ' pc';
 			var $h = $(h);
 			var to = 0, cw = 0;
-			function CSSSelectorUpdateOrientation() {
-				switch(w.orientation) {
-					case 90:
-					case -90:
-						$h.removeClass(p).addClass(l);
-						break;
-					default:
-						$h.removeClass(l).addClass(p);
-						break;
-				}
-			}
-
-			$(w).on('orientationchange', CSSSelectorUpdateOrientation).trigger('orientationchange');
 
 			/* ie7 cpu 100% fix */
 			function CSSSelectorUpdateSize() {
 				try {
-					var _cw = _de('clientWidth');
+					var _cw = _de('clientWidth'), _ch = _de('clientHeight');
+					if(_cw > _ch) {
+						$h.removeClass(p).addClass(l);
+					} else {
+						$h.removeClass(l).addClass(p);
+					}
 					if(_cw == cw) return;
 					cw = _cw;
 					clearTimeout(to);
@@ -127,7 +119,7 @@ function css_browser_selector(u) {
 					);
 				} catch(e) {}
 			}
-			$(w).on('resize', CSSSelectorUpdateSize).trigger('resize');
+			$(w).on('resize orientationchange', CSSSelectorUpdateSize).trigger('resize');
 		})(w.jQuery);
 	}
 })(document, window);
