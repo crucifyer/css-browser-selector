@@ -96,6 +96,7 @@ function css_browser_selector(u) {
 
 			/* ie7 cpu 100% fix */
 			function CSSSelectorUpdateSize() {
+				if(to != 0) return;
 				try {
 					var _cw = _de('clientWidth'), _ch = _de('clientHeight');
 					if(_cw > _ch) {
@@ -105,7 +106,7 @@ function css_browser_selector(u) {
 					}
 					if(_cw == cw) return;
 					cw = _cw;
-					clearTimeout(to);
+					//clearTimeout(to);
 				} catch(e) {}
 				to = setTimeout(CSSSelectorUpdateSize_, 100);
 			}
@@ -119,8 +120,13 @@ function css_browser_selector(u) {
 						(cw <= 1024) ? tw : 'pc'
 					);
 				} catch(e) {}
+				to = 0;
 			}
-			$(w).on('resize orientationchange', CSSSelectorUpdateSize).trigger('resize');
+			if(w.CSSBS_ie) {
+				setInterval(CSSSelectorUpdateSize, 1000);
+			} else {
+				$(w).on('resize orientationchange', CSSSelectorUpdateSize).trigger('resize');
+			}
 		})(w.jQuery);
 	}
 })(document, window);
