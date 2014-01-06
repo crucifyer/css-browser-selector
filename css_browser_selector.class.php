@@ -31,7 +31,7 @@ class css_browser_selector
 		return preg_match($regex, self::$ua, self::$re) != false ? true : false;
 	}
 
-	public static function getClassName($userAgent) {
+	public static function getClassName($userAgent, $nomachine = false) {
 		self::$ua = strtolower($userAgent);
 
 		return implode(' ', array(
@@ -68,7 +68,7 @@ class css_browser_selector
 			/* Tablet */
 			(self::is('tablet') ? 'tablet' : ''),
 			/* Machine */
-			(self::is('j2me') ? self::m . ' j2me' :
+			($nomachine ? '' : (self::is('j2me') ? self::m . ' j2me' :
 				(self::is('ipad; u; cpu os') ? self::m . ' chrome android tablet' :
 					(self::is('ipad;u;cpu os') ? self::m . ' chromedef android tablet' :
 						(self::is('iphone') ? self::m . ' ios iphone' :
@@ -79,7 +79,7 @@ class css_browser_selector
 											(self::is('webtv') ? 'webtv' :
 												(self::is('win') ? 'win' . (self::is('windows nt 6.0') ? ' vista' : '') :
 													(self::is('freebsd') ? 'freebsd' :
-														((self::is('x11') || self::is('linux')) ? 'linux' : ''))))))))))))
+														((self::is('x11') || self::is('linux')) ? 'linux' : '')))))))))))))
 		));
 	}
 }
