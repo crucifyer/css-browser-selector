@@ -135,6 +135,7 @@ function css_browser_selector(u) {
 			} else {
 				$(w).on('resize orientationchange', CSSSelectorUpdateSize).trigger('resize');
 			}
+			$(w).load(CSSSelectorUpdateSize);
 		})(w.jQuery);
 	}
 })(document, window);
