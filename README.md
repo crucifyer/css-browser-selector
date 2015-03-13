@@ -1,6 +1,7 @@
 # CSS Browser Selector
 
 > no need css hack. html tag adding your browser info
+> fork this project from : http://rafael.adm.br/css_browser_selector/
 
 ### if IE6
 ```html
@@ -37,8 +38,6 @@
 ```php
 $className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT]);
 ```
-
-> fork this project from : http://rafael.adm.br/css_browser_selector/
 
 ### more support types
 ```css
