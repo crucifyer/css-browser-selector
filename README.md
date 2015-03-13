@@ -97,5 +97,3 @@ source
 
 test page
 - https://cdn.rawgit.com/crucifyer/css-browser-selector/master/test.html
-
-# License: http://creativecommons.org/licenses/by/2.5/
