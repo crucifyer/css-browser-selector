@@ -4,7 +4,7 @@
  -- original --
  Rafael Lima (http://rafael.adm.br)
  http://rafael.adm.br/css_browser_selector
- License: http://creativecommons.org/licenses/by/2.5/
+ License: http://choosealicense.com/licenses/mit/
  Contributors: http://rafael.adm.br/css_browser_selector#contributors
  -- /original --
 
