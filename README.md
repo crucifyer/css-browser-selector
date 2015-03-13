@@ -89,11 +89,11 @@ other browser $.browser = {};
 ```
 
 compressed
-- https://css-browser-selector.googlecode.com/git/css_browser_selector.min.js
+- https://raw.githubusercontent.com/crucifyer/css-browser-selector/master/css_browser_selector.min.js
 
 source
-- https://css-browser-selector.googlecode.com/git/css_browser_selector.js
-- https://css-browser-selector.googlecode.com/git/css_browser_selector.class.php
+- https://raw.githubusercontent.com/crucifyer/css-browser-selector/master/css_browser_selector.js
+- https://raw.githubusercontent.com/crucifyer/css-browser-selector/master/css_browser_selector.class.php
 
 test page
 - https://cdn.rawgit.com/crucifyer/css-browser-selector/master/test.html
