@@ -33,7 +33,7 @@ function css_browser_selector(u) {
 				' ie6789 ie9m' : (v > 9 ) ?
 				' ie9m' : '')) :
 			/* EDGE */
-			(/Edge\/(\d+)\.(\d+)/.test(ua) && (v = [RegExp.$1, RegExp.$2])) ?
+			(/edge\/(\d+)\.(\d+)/.test(ua) && (v = [RegExp.$1, RegExp.$2])) ?
 			'ie ie' + v[0] + ' ie' + v[0] + '_' + v[1] + ' ie9m edge' :
 				/* IE 11 */
 				(/trident\/\d+.*?;\s*rv:(\d+)\.(\d+)\)/.test(ua) && (v = [RegExp.$1, RegExp.$2])) ?
