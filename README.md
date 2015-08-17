@@ -14,6 +14,11 @@
 <html class="ie ie10 ie9m win js">
 ```
 
+### if EDGE
+```html
+<html class="ie ie12 ie9m edge win js">
+```
+
 ### if iPhone Safari
 ```html
 <html class="webkit safari mobile ios iphone js">
