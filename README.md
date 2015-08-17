@@ -41,7 +41,7 @@
 
 ### php version using
 ```php
-$className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT]);
+$className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT']);
 ```
 
 ### more support types
