@@ -42,8 +42,8 @@ function css_browser_selector(u) {
 					(/firefox\/(\d+)\.(\d+)/.test(ua) && (re = RegExp)) ?
 						g + ' ff ff' + re.$1 + ' ff' + re.$1 + '_' + re.$2 :
 						is('gecko/') ? g :
-							/* Opera */
-							is(o) ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 :
+							/* Opera - old */
+							is(o) ? 'old' + o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 :
 								(/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) :
 								/* K */
 								is('konqueror') ? 'konqueror' :
@@ -52,15 +52,20 @@ function css_browser_selector(u) {
 										/* Chrome */
 										(is(c) || is('crios')) ? w + ' ' + c :
 											/* Iron */
-											is('iron') ? w + ' iron' :
-												/* Safari */
-												!is('cpu os') && is('applewebkit/') ? w + ' ' + s :
-													/* Mozilla */
-													is('mozilla/') ? g : '',
+												is('iron') ? w + ' iron' :
+													/* Safari */
+													!is('cpu os') && is('applewebkit/') ? w + ' ' + s :
+														/* Mozilla */
+														is('mozilla/') ? g : '',
 		/* Android */
 		is('android') ? m + ' android' : '',
 		/* Tablet */
 		is('tablet') ? 'tablet' : '',
+		/* blink or webkit engine browsers */
+			/* Opera */
+			is('opr/') ? o : '',
+			/* Yandex */
+			is('yabrowser') ? 'yandex' : '',
 		/* Machine */
 		is('j2me') ? m + ' j2me' :
 			is('ipad; u; cpu os') ? m + ' chrome android tablet' :
