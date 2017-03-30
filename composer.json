@@ -4,6 +4,7 @@
 	"keywords": ["css", "css browser selector"],
 	"homepage": "https://github.com/crucifyer/css-browser-selector/",
 	"type": "library",
+	"license": "MIT",
 	"version": "0.0.3",
 	"require": {
 		"php": ">=5.2.4"
