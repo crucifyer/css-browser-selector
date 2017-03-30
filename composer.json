@@ -1,0 +1,22 @@
+{
+	"name": "crucifyer/css-browser-selector",
+	"description": "CSS Browser Selector - no need css hack. html tag adding your browser info",
+	"keywords": ["css", "css browser selector"],
+	"homepage": "https://github.com/crucifyer/css-browser-selector/",
+	"type": "library",
+	"version": "0.0.3",
+	"require": {
+		"php": ">=5.2.4"
+	},
+	"authors": [
+		{
+			"name": "Song Hyo-Jin",
+			"email": "shj@xenosi.de",
+			"homepage": "https://github.com/crucifyer/"
+		}
+	],
+	"autoload": {
+		"classmap": ["css_browser_selector.class.php"],
+		"files": ["css_browser_selector.class.php"]
+	}
+}
