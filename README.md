@@ -41,7 +41,6 @@
 
 ### php version using
 ```php
-<?php
 $className = css_browser_selector::getClassName($_SERVER['HTTP_USER_AGENT']);
 ```
 
