@@ -34,7 +34,7 @@ class css_browser_selector
 	public static function getClassName($userAgent, $nomachine = false) {
 		self::$ua = strtolower($userAgent);
 
-		return implode(' ', array(
+		return preg_replace('/ +/', ' ', implode(' ', array(
 			/* IE */
 			(! self::test('~opera|webtv~') && self::test('~msie\s(\d+)~')) ?
 				'ie ie' . self::$re[1] . ((self::$re[1] == 6 || self::$re[1] == 7) ?
@@ -44,7 +44,7 @@ class css_browser_selector
 								' ie9m' : '')))) :
 				/* EDGE */
 				(self::test('~edge/(\d+)\.(\d+)~') ?
-					'ie ie' . self::$re[1] . ' ie' . self::$re[1] . '_' . self::$re[2] . ' ie9m edge' :
+					(self::is('chrome/') ? 'chrome edge' : 'ie ie' . self::$re[1] . ' ie' . self::$re[1] . '_' . self::$re[2] . ' ie9m edge') :
 					/* IE 11 */
 					(self::test('~trident/\d+.*?;\s*rv:(\d+)\.(\d+)\)~') ?
 						'ie ie' . self::$re[1] . ' ie' . self::$re[1] . '_' . self::$re[2] . ' ie9m' :
@@ -83,7 +83,7 @@ class css_browser_selector
 												(self::is('win') ? 'win' . (self::is('windows nt 6.0') ? ' vista' : '') :
 													(self::is('freebsd') ? 'freebsd' :
 														((self::is('x11') || self::is('linux')) ? 'linux' : '')))))))))))))
-		));
+		)));
 	}
 }
 

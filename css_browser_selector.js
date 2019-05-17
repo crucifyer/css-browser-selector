@@ -34,7 +34,7 @@ function css_browser_selector(u) {
 				' ie9m' : '')) :
 			/* EDGE */
 			(/edge\/(\d+)\.(\d+)/.test(ua) && (v = [RegExp.$1, RegExp.$2])) ?
-			'ie ie' + v[0] + ' ie' + v[0] + '_' + v[1] + ' ie9m edge' :
+				(is('chrome/') ? 'chrome edge' : 'ie ie' + v[0] + ' ie' + v[0] + '_' + v[1] + ' ie9m edge') :
 				/* IE 11 */
 				(/trident\/\d+.*?;\s*rv:(\d+)\.(\d+)\)/.test(ua) && (v = [RegExp.$1, RegExp.$2])) ?
 					'ie ie' + v[0] + ' ie' + v[0] + '_' + v[1] + ' ie9m' :
