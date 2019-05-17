@@ -16,7 +16,8 @@
 
 ### if EDGE
 ```html
-<html class="ie ie12 ie9m edge win js">
+<html class="chrome edge win js">
+<html class="ie ie12 ie9m edge win js" oldedge>
 ```
 
 ### if iPhone Safari
