@@ -72,7 +72,7 @@ example
 .tabletwide #rightMenu { float:right; width:120px; }
 ```
 
-- support retina : view test page. http://crucifyer.github.io/css-browser-selector/
+- support retina : view test page. https://crucifyer.github.io/css-browser-selector/
 
 ### mobile font zoom disable
 ```css
@@ -102,4 +102,4 @@ source
 - https://raw.githubusercontent.com/crucifyer/css-browser-selector/master/css_browser_selector.class.php
 
 test page
-- http://crucifyer.github.io/css-browser-selector/
+- https://crucifyer.github.io/css-browser-selector/
