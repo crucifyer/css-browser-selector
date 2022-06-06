@@ -1,5 +1,7 @@
 # CSS Browser Selector
 
+## Now that IE is a thing of the past, this library is no longer needed.
+
 > no need css hack. html tag adding your browser info
 > fork this project from : http://rafael.adm.br/css_browser_selector/
 
@@ -103,3 +105,5 @@ source
 
 test page
 - https://crucifyer.github.io/css-browser-selector/
+
+## Now that IE is a thing of the past, this library is no longer needed.
